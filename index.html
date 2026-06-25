@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DictaMux — dictate to your terminal</title>
+  <meta name="description" content="DictaMux turns speech into commands, navigation, and text across your tmux sessions." />
+  <!-- M1 alpha: unlisted preview. No SEO/OG yet — added at M3 (see DMP Rollout Plan). -->
+  <style>
+    :root {
+      --bg: #0d1117;
+      --panel: #161b22;
+      --border: #30363d;
+      --fg: #e6edf3;
+      --muted: #8b949e;
+      --accent: #2f81f7;
+      --accent-hover: #4493f8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-font-smoothing: antialiased; }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .logo {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .pitch {
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      color: var(--muted);
+      max-width: 32ch;
+      margin-bottom: 2.5rem;
+    }
+    .download {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+    .download:hover { background: var(--accent-hover); transform: translateY(-1px); }
+    .download.disabled {
+      background: var(--panel);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      cursor: default;
+      pointer-events: none;
+    }
+    .download-note {
+      margin-top: 0.85rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1 class="logo">DictaMux</h1>
+    <!-- PLACEHOLDER COPY — edit freely. M1 pitch line. -->
+    <p class="pitch">Dictate to your terminal. Turn speech into commands, navigation, and text across your tmux sessions.</p>
+
+    <!-- DMG link coming later. Swap href + remove `disabled` class + update note when the build is ready. -->
+    <a class="download disabled" href="#" aria-disabled="true">Download for macOS</a>
+    <p class="download-note">Beta build coming soon — check back shortly.</p>
+  </main>
+
+  <footer>
+    DictaMux · alpha
+  </footer>
+</body>
+</html>

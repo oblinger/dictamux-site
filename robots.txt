@@ -1,0 +1,7 @@
+# DictaMux — invited alpha, unlisted.
+# This site is shared by direct link with invited alpha users only.
+# Nothing here is public; nothing here should be indexed.
+# Revisit at M3 (TAP Rollout Plan) when the public site goes live.
+
+User-agent: *
+Disallow: /

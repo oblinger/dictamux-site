@@ -3,9 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DictaMux — dictate to your terminal</title>
-  <meta name="description" content="DictaMux turns speech into commands, navigation, and text across your tmux sessions." />
-  <!-- M1 alpha: unlisted preview. No SEO/OG yet — added at M3 (see DMP Rollout Plan). -->
+  <title>DictaMux — invited alpha</title>
+
+  <!--
+    M-Alpha.1 / TAP F002 step 1 — the UNLISTED invited-alpha splash.
+
+    This page is shared by direct link with invited alpha users only. It is
+    noindexed here and in /robots.txt, and nothing public links to it.
+
+    Deliberately absent, per the Stage-A work order: pricing, waitlist,
+    testimonials, share buttons, social/OG cards, analytics. Those arrive at
+    M3 (see TAP Rollout Plan), not now.
+
+    Three PLACEHOLDERs remain, each blocked on an asset that does not exist
+    yet. Search this file for "PLACEHOLDER" — all three are visibly marked in
+    the rendered page too, so a half-finished version cannot be sent by
+    accident:
+      1. Demo video       — Dan records it (TAP F002 step 2)
+      2. Download link    — the signed DMG (MUX/DMUX build + notarization)
+      3. Feedback channel — Dan picks email alias vs private Discord (step 4)
+  -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+  <meta name="googlebot" content="noindex, nofollow" />
+
   <style>
     :root {
       --bg: #0d1117;
@@ -15,6 +35,8 @@
       --muted: #8b949e;
       --accent: #2f81f7;
       --accent-hover: #4493f8;
+      --warn: #d29922;
+      --warn-bg: #2b2415;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { -webkit-font-smoothing: antialiased; }
@@ -22,45 +44,139 @@
       background: var(--bg);
       color: var(--fg);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      line-height: 1.6;
+      line-height: 1.65;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem 1.5rem;
-      max-width: 720px;
+    .wrap {
+      width: 100%;
+      max-width: 680px;
       margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    main { flex: 1; padding: 3.5rem 0 2rem; }
+
+    /* ---- masthead ---- */
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 100px;
+      padding: 0.2rem 0.7rem;
+      margin-bottom: 1.4rem;
     }
     .logo {
-      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-size: clamp(2.4rem, 8vw, 3.6rem);
       font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin-bottom: 0.9rem;
       background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .pitch {
-      font-size: clamp(1.1rem, 3vw, 1.4rem);
-      color: var(--muted);
-      max-width: 32ch;
-      margin-bottom: 2.5rem;
+    .tagline {
+      font-size: clamp(1.2rem, 3.4vw, 1.55rem);
+      font-weight: 500;
+      color: var(--fg);
+      max-width: 22ch;
+      margin-bottom: 1rem;
     }
+    .lede {
+      font-size: 1.02rem;
+      color: var(--muted);
+      max-width: 54ch;
+    }
+
+    /* ---- sections ---- */
+    section { margin-top: 3rem; }
+    h2 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    /* ---- video ---- */
+    .video {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .video iframe, .video video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    /* ---- placeholder marker ---- */
+    .ph {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+      padding: 1.5rem;
+      background: repeating-linear-gradient(
+        45deg, transparent, transparent 12px,
+        rgba(210, 153, 34, 0.05) 12px, rgba(210, 153, 34, 0.05) 24px
+      );
+    }
+    .ph-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--warn);
+      background: var(--warn-bg);
+      border: 1px solid var(--warn);
+      border-radius: 4px;
+      padding: 0.15rem 0.55rem;
+    }
+    .ph-text { font-size: 0.9rem; color: var(--muted); max-width: 42ch; }
+
+    /* ---- requirements ---- */
+    .reqs { list-style: none; }
+    .reqs li {
+      display: flex;
+      gap: 0.75rem;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .reqs li:last-child { border-bottom: 0; }
+    .reqs .k { color: var(--muted); min-width: 7.5rem; flex-shrink: 0; }
+    .reqs .v { color: var(--fg); }
+    @media (max-width: 480px) {
+      .reqs li { flex-direction: column; gap: 0.15rem; }
+    }
+
+    /* ---- download ---- */
     .download {
       display: inline-block;
       background: var(--accent);
       color: #fff;
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       font-weight: 600;
-      padding: 0.85rem 2rem;
+      padding: 0.8rem 1.9rem;
       border-radius: 8px;
       text-decoration: none;
       transition: background 0.15s ease, transform 0.15s ease;
@@ -73,32 +189,105 @@
       cursor: default;
       pointer-events: none;
     }
-    .download-note {
-      margin-top: 0.85rem;
-      font-size: 0.85rem;
-      color: var(--muted);
+    .note { margin-top: 0.85rem; font-size: 0.87rem; color: var(--muted); max-width: 54ch; }
+
+    /* ---- inline placeholder block ---- */
+    .ph-block {
+      border: 1px dashed var(--warn);
+      background: var(--warn-bg);
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: flex-start;
     }
+    .ph-block .ph-text { color: #e3d3a8; }
+
     footer {
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+      padding: 1.6rem 0 2.2rem;
+      font-size: 0.82rem;
       color: var(--muted);
+      margin-top: 3.5rem;
     }
   </style>
 </head>
 <body>
   <main>
-    <h1 class="logo">DictaMux</h1>
-    <!-- PLACEHOLDER COPY — edit freely. M1 pitch line. -->
-    <p class="pitch">Dictate to your terminal. Turn speech into commands, navigation, and text across your tmux sessions.</p>
+    <div class="wrap">
+      <span class="badge">Invited alpha</span>
+      <h1 class="logo">DictaMux</h1>
+      <p class="tagline">Voice-control your fleet of agents.</p>
+      <p class="lede">
+        You are running five coding agents across as many tmux panes. DictaMux lets you
+        steer all of them by voice — name the pane you mean, speak the instruction, edit
+        it mid-sentence, approve the one that is waiting on you — without stopping to
+        hunt for the window or taking your eyes off the one you are actually reading.
+      </p>
 
-    <!-- DMG link coming later. Swap href + remove `disabled` class + update note when the build is ready. -->
-    <a class="download disabled" href="#" aria-disabled="true">Download for macOS</a>
-    <p class="download-note">Beta build coming soon — check back shortly.</p>
+      <section>
+        <h2>Watch it work</h2>
+        <div class="video">
+          <!-- PLACEHOLDER 1 — demo video (TAP F002 step 2; Dan records).
+               Replace this whole .ph div with the player, e.g.
+               a <video controls preload="metadata" poster="poster.jpg"> element
+               with an mp4 <source>. Keep the .video wrapper — it holds the 16:9 box. -->
+          <div class="ph">
+            <span class="ph-tag">Placeholder</span>
+            <p class="ph-text">The three-minute demo goes here. Not yet recorded.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>What you need</h2>
+        <ul class="reqs">
+          <li><span class="k">Mac</span><span class="v">Apple Silicon only — M1 or later. Intel Macs cannot run the on-device speech models.</span></li>
+          <li><span class="k">macOS</span><span class="v">macOS 26 (Tahoe) or later.</span></li>
+          <li><span class="k">Terminal</span><span class="v">tmux. DictaMux drives the sessions you already have; it does not replace them.</span></li>
+          <li><span class="k">Permissions</span><span class="v">Microphone and Accessibility, granted on first run. The quick-start walks through both prompts.</span></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Get the build</h2>
+        <!-- PLACEHOLDER 2 — private download link.
+             When the signed DMG is ready: set href, drop the `disabled` class,
+             and replace the note text with the version + build date. -->
+        <a class="download disabled" href="#" aria-disabled="true">Download for macOS</a>
+        <p class="note">
+          <span class="ph-tag">Placeholder</span>
+          The alpha build link lands here. This page is unlisted — please do not forward
+          it. If someone should be in the alpha, say so and they will be invited directly.
+        </p>
+      </section>
+
+      <section>
+        <h2>Telling us what broke</h2>
+        <!-- PLACEHOLDER 3 — feedback channel (TAP F002 step 4; Dan picks
+             an email alias vs a small private Discord). Wire the same address
+             into the quick-start doc once it is chosen. -->
+        <div class="ph-block">
+          <span class="ph-tag">Placeholder</span>
+          <p class="ph-text">
+            Feedback channel not chosen yet — an email alias or a small private Discord.
+            Whichever it is, it goes here and in the quick-start.
+          </p>
+        </div>
+        <p class="note">
+          Rough edges are the point. Half-working is more useful to hear about than
+          broken, and <em>"I stopped using it on day three"</em> is the single most
+          valuable thing you can tell us.
+        </p>
+      </section>
+    </div>
   </main>
 
   <footer>
-    DictaMux · alpha
+    <div class="wrap">
+      DictaMux · invited alpha · unlisted
+    </div>
   </footer>
 </body>
 </html>

@@ -1,0 +1,47 @@
+# Jekyll, built natively by GitHub Pages (no theme, no plugins).
+# Key pages (root, product pages) are hand-written HTML inside _layouts/chrome.html;
+# essays are rendered from vault markdown by scripts/publish.sh into _posts/.
+# UMBRELLA is a placeholder until the umbrella's name is settled (TAP F012).
+title: UMBRELLA
+tagline: Knowledge management for the agentic era.
+url: "https://oblinger.github.io"
+baseurl: "/dictamux-site"
+permalink: /essays/:title/
+markdown: kramdown
+excerpt_separator: ""   # no excerpts: a split excerpt breaks the raw wrapper on posts
+exclude:
+  - README.md
+  - scripts
+  - Gemfile
+  - Gemfile.lock
+
+author:
+  name: Dan Oblinger
+  url: "https://oblinger.github.io/"
+questions_url: "https://github.com/oblinger/dictamux-site/discussions"
+subscribe_url: "#"
+rss_url: "#"
+
+# The umbrella and its three subjects, in header order. `url` is relative to baseurl.
+# Placeholder URLs point at the design samples until the three paths exist (M-Home.4).
+umbrella_url: /design/root.html
+subjects:
+  - key: anchor-system
+    name: The Anchor System
+    kind: A way of working
+    teaser: Anchor all content as standardized local markdown; then refine it during usage.
+    url: /design/root.html#anchor-system
+  - key: dictamux
+    name: DictaMux
+    kind: Always-on agentic control
+    teaser: Dictate to a fleet of terminal agents by name, and see which one needs you.
+    url: /design/dictamux.html
+  - key: hookanchor
+    name: HookAnchor
+    kind: Navigating a large personal wiki
+    teaser: One keystroke to any page, by the name you already know.
+    url: /design/root.html#hookanchor
+
+defaults:
+  - scope: { path: "", type: posts }
+    values: { layout: essay, subject: dictamux }

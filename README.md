@@ -1,6 +1,6 @@
 # dictamux-site
 
-The **DictaMux** site. Static, single-page, no build step, served via GitHub Pages.
+The umbrella site (placeholder name UMBRELLA) and the **DictaMux** alpha splash. Jekyll, built natively by GitHub Pages: key pages are hand-written HTML inside `_layouts/chrome.html`; essays come from the vault via `scripts/publish.sh` into `_posts/`. `index.html` has no front matter, so Jekyll copies it verbatim.
 
 Planning, copy, and rollout live in the **TAP** anchor (`~/ob/kmr/prj/ClaudiMux/MuxUX/The Anchor Press/`). This repo holds only the deployed page.
 
@@ -30,8 +30,10 @@ Pushing to `main` auto-publishes via GitHub Pages.
 ## Local preview
 
 ```
-open index.html               # quick look
-python3 -m http.server 8000   # or serve at http://localhost:8000
+jekyll serve           # localhost:4000/dictamux-site/
+scripts/publish.sh     # vault TAP Essays/ -> _posts/
+scripts/check-chrome.sh
+scripts/check-home.sh
 ```
 
 ## TODO

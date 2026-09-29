@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}</title>
+{% if page.description %}<meta name="description" content="{{ page.description | escape }}">
+{% endif %}{% if page.canonical_url %}<link rel="canonical" href="{{ page.canonical_url }}">
+{% endif %}<link rel="stylesheet" href="{{ '/assets/chrome.css' | relative_url }}">
+</head>
+<body>
+<!-- chrome v1 -->
+<header class="chrome-head"><div class="wrap wide">
+  <a class="umbrella" href="{{ site.umbrella_url | relative_url }}"{% if page.subject == nil or page.subject == 'root' %} aria-current="page"{% endif %}>{{ site.title }}</a>
+  <nav>
+{% for s in site.subjects %}    <a href="{{ s.url | relative_url }}"{% if page.subject == s.key %} aria-current="page"{% endif %}>{{ s.name }}</a>
+{% endfor %}  </nav>
+</div></header>
+
+<main>{{ content }}</main>
+
+<footer class="chrome-strip"><div class="wrap wide">
+{% if page.subject and page.subject != 'root' %}  <div class="others">
+{% for s in site.subjects %}{% if s.key != page.subject %}    <div><p class="kind">{{ s.kind }}</p><h3><a href="{{ s.url | relative_url }}">{{ s.name }}</a></h3><p>{{ s.teaser }}</p></div>
+{% endif %}{% endfor %}  </div>
+{% endif %}  <div class="meta">
+    <span>Written and built by <a href="{{ site.author.url }}">{{ site.author.name }}</a>.</span>
+    <a href="{{ site.questions_url }}">Questions</a>
+    <a href="{{ site.subscribe_url }}">Subscribe</a>
+    <a href="{{ site.rss_url }}">RSS</a>
+  </div>
+</div></footer>
+<!-- /chrome v1 -->
+</body>
+</html>

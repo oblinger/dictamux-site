@@ -20,7 +20,7 @@ author:
   url: "https://oblinger.github.io/"
 questions_url: "https://github.com/oblinger/dictamux-site/discussions"
 subscribe_url: "#"
-rss_url: "#"
+rss_url: "https://oblinger.github.io/dictamux-site/feed.xml"
 
 # The umbrella and its three subjects, in header order. `url` is relative to baseurl.
 # Placeholder URLs point at the design samples until the three paths exist (M-Home.4).
